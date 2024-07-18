@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Search Section -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/lot_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_lot_number"
+        android:inputType="numberSigned"
+        android:autofillHints="lot_number"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:maxWidth="600dp"
+        android:backgroundTint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_name"
+        android:inputType="textPersonName"
+        android:autofillHints="name"
+        android:layout_below="@id/lot_number"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:maxWidth="600dp"
+        android:backgroundTint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_category"
+        android:inputType="text"
+        android:autofillHints="category"
+        android:layout_below="@id/name"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:maxWidth="600dp"
+        android:backgroundTint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/period"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_period"
+        android:inputType="text"
+        android:autofillHints="period"
+        android:layout_below="@id/category"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:maxWidth="600dp"
+        android:backgroundTint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_description"
+        android:inputType="textMultiLine"
+        android:autofillHints="description"
+        android:layout_below="@id/period"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:maxWidth="600dp"
+        android:backgroundTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_upload"
+        android:layout_below="@id/description"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blue_rectangular_button"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_submit"
+        android:layout_below="@id/upload_button"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blue_rectangular_button"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

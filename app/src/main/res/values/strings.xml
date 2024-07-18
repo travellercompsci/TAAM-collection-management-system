@@ -1,35 +1,11 @@
 <resources>
-    <string name="app_name">B07 Demo Summer 2024</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="delete_item">Delete Item</string>
-    <string name="add_item">Add Item</string>
-    <string name="back">Back</string>
-    <string name="recyclerview">RecyclerView</string>
-    <string name="scroller">Scroller</string>
-    <string name="spinner">Spinner</string>
-    <string name="manage_items">Manage Items</string>
-
-    <!-- Report Screen -->
-    <string name="generate_report">Generate Report</string>
-    <string name="gen_button_text">Generate</string>
-    <string name="gen_desc_pic_only_button_text">Generate\nWith Description And Picture Only</string>
-
-    <string name="by_lot_number">By Lot Number:</string>
-    <string name="by_name">By Name:</string>
-    <string name="by_category">By Category:</string>
-    <string name="by_period">By Period:</string>
-    <string name="for_all_items">For All Items:</string>
-
-    <string name="hint_lot_number">Lot number</string>
-    <string name="hint_name">Name of collection</string>
+    <string name="app_name">YourAppName</string>
+    <string name="title">Toronto Asian Art Museum Collection Management</string>
+    <string name="hint_lot_number">Lot Number</string>
+    <string name="hint_name">Name</string>
     <string name="hint_category">Category</string>
-    <string name="hint_period_of_time">Period of time</string>
-
-    <string-array name="categories_array">
-        <item>Books</item>
-        <item>Movies</item>
-    </string-array>
-
-
+    <string name="hint_period">Period</string>
+    <string name="hint_description">Description</string>
+    <string name="button_upload">Upload file here</string>
+    <string name="button_submit">Submit</string>
 </resources>
