@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    @Override
+@Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             getSupportFragmentManager().popBackStack();
