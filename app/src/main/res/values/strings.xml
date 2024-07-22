@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">TAAM Collection Management System</string>
+    <string name="title">Toronto Asian Art Museum Collection Management</string>
+
+    <string name="hint_period">Period</string>
+    <string name="hint_description">Description</string>
+    <string name="button_upload">Upload file here</string>
+    <string name="button_submit">Submit</string>
 
     <!-- Report Screen -->
     <string name="generate_report">Generate Report</string>
