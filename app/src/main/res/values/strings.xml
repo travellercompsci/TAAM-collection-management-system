@@ -1,11 +1,26 @@
 <resources>
-    <string name="app_name">YourAppName</string>
+    <string name="app_name">TAAM Collection Management System</string>
     <string name="title">Toronto Asian Art Museum Collection Management</string>
-    <string name="hint_lot_number">Lot Number</string>
-    <string name="hint_name">Name</string>
-    <string name="hint_category">Category</string>
+
     <string name="hint_period">Period</string>
     <string name="hint_description">Description</string>
     <string name="button_upload">Upload file here</string>
     <string name="button_submit">Submit</string>
+
+    <!-- Report Screen -->
+    <string name="generate_report">Generate Report</string>
+    <string name="gen_button_text">Generate</string>
+    <string name="gen_desc_pic_only_button_text">Generate\nWith Description And Picture Only</string>
+
+    <string name="by_lot_number">By Lot Number:</string>
+    <string name="by_name">By Name:</string>
+    <string name="by_category">By Category:</string>
+    <string name="by_period">By Period:</string>
+    <string name="for_all_items">For All Items:</string>
+
+    <string name="hint_lot_number">Lot number</string>
+    <string name="hint_name">Name of collection</string>
+    <string name="hint_category">Category</string>
+    <string name="hint_period_of_time">Period of time</string>
+
 </resources>
