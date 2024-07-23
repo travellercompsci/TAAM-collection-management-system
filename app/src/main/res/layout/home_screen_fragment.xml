@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
+<<<<<<<< HEAD:app/src/main/res/layout/home_screen_fragment.xml
     android:layout_height="match_parent"
     android:fadingEdge="none">
 
@@ -73,5 +71,8 @@
         android:text="Search"
         app:layout_constraintStart_toEndOf="@+id/buttonView"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+========
+    android:layout_height="match_parent">
+>>>>>>>> da95b7b570d5c0698140cec3f5c015ce47d2dca7:app/src/main/res/layout/activity_main.xml
 
 </androidx.constraintlayout.widget.ConstraintLayout>
