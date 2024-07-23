@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeScreenFragment extends Fragment {
+public class HomeScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
     private List<DisplayItem> itemList;
@@ -26,6 +26,14 @@ public class HomeScreenFragment extends Fragment {
         Button buttonAdmin = view.findViewById(R.id.buttonAdmin);
         Button buttonView = view.findViewById(R.id.buttonView);
         Button buttonSearch = view.findViewById(R.id.buttonSearch);
+
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Todo: change this to the view screen.
+                loadFragment(new ReportScreenFragment());
+            }
+        });
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
