@@ -21,6 +21,5 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
         // Todo: else case
-
     }
 }
