@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "568883047207",
+    "firebase_url": "https://taam-collection-default-rtdb.firebaseio.com",
+    "project_id": "taam-collection",
+    "storage_bucket": "taam-collection.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568883047207:android:9df665766b19ebd47f1702",
+        "android_client_info": {
+          "package_name": "com.example.taamcms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQJNFzv-UJecoNSSYDyi7_xTTmlC__ykw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
