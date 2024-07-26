@@ -10,6 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +24,9 @@ public class HomeScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
     private List<DisplayItem> itemList;
+
+    private FirebaseDatabase db;
+    private DatabaseReference itemsRef;
 
     @Nullable
     @Override
@@ -39,11 +49,33 @@ public class HomeScreenFragment extends LoaderFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         itemList = new ArrayList<>();
-        loadStaticItems();
         itemAdapter = new DisplayItemAdapter(itemList);
         recyclerView.setAdapter(itemAdapter);
 
+        db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
+        fetchItemsFromDatabase();
+
         return view;
+    }
+
+    private void fetchItemsFromDatabase() {
+        itemsRef = db.getReference("Displays/");
+        itemsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    DisplayItem item = snapshot.getValue(DisplayItem.class);
+                    itemList.add(item);
+                }
+                itemAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void loadStaticItems() {
