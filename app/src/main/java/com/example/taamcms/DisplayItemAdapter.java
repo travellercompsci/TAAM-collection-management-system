@@ -3,9 +3,13 @@ package com.example.taamcms;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.DisplayItemViewHolder> {
@@ -30,6 +34,7 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
         holder.textCategory.setText(item.getCategory());
         holder.textPeriod.setText(item.getPeriod());
         holder.textDescription.setText(item.getDescription());
+        Picasso.get().load(item.getImage()).into(holder.displayImage);
     }
 
     @Override
@@ -39,6 +44,7 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
 
     public static class DisplayItemViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle, textLotNum, textCategory, textPeriod, textDescription;
+        ImageView displayImage;
 
         public DisplayItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -47,6 +53,7 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
             textCategory = itemView.findViewById(R.id.textCategory);
             textPeriod = itemView.findViewById(R.id.textPeriod);
             textDescription = itemView.findViewById(R.id.textDescription);
+            displayImage = itemView.findViewById(R.id.displayImage);
         }
     }
 }

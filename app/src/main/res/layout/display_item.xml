@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/displayImage"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginTop="8dp"
@@ -115,10 +115,10 @@
         android:layout_height="128dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="This piece is from the asa"
+        android:text="This piece is from the ssssssssssssssss"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/displayImage"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <View
