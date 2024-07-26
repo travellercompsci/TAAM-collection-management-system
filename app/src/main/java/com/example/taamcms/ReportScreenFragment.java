@@ -41,7 +41,7 @@ public class ReportScreenFragment extends LoaderFragment {
                                 return false;
                             }
 
-                            return item.getLot().equals(target);
+                            return item.getLot().toLowerCase().equals(target);
                         }
                     }
             ),
@@ -56,7 +56,7 @@ public class ReportScreenFragment extends LoaderFragment {
                                 return false;
                             }
 
-                            return item.getTitle().equals(target);
+                            return item.getTitle().toLowerCase().equals(target);
                         }
                     }
             ),
@@ -71,7 +71,7 @@ public class ReportScreenFragment extends LoaderFragment {
                                 return false;
                             }
 
-                            return item.getCategory().equals(target);
+                            return item.getCategory().toLowerCase().equals(target);
                         }
                     }
             ),
@@ -85,7 +85,7 @@ public class ReportScreenFragment extends LoaderFragment {
                             if (item.getPeriod() == null) {
                                 return false;
                             }
-                            return item.getPeriod().equals(target);
+                            return item.getPeriod().toLowerCase().equals(target);
                         }
                     }
             ),
@@ -135,7 +135,7 @@ public class ReportScreenFragment extends LoaderFragment {
 
                         // Show/hide the text input.
                         EditText textInput = view.findViewById(R.id.generateReportTextInput);
-                        System.out.println("Text input " + textInput);
+                        textInput.setText("");
                         if (mode.requireTextInput) {
                             textInput.setVisibility(View.VISIBLE);
                             textInput.setHint(mode.hintId);

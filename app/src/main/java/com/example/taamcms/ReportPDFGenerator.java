@@ -62,11 +62,6 @@ public class ReportPDFGenerator {
      * @return if the operation was successful.
      */
     public boolean generateReport(Context context, String fileName) {
-        // Android versions before v19 aren't supported.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return false;
-        }
-
         // Canvas for drawing PDF pages.
         Canvas canvas;
         int pageYOffset = marginSize; // For positioning individual items.
@@ -147,7 +142,11 @@ public class ReportPDFGenerator {
             );
 
             // Height of the image + description. If it exceeds the size of the page, we request a new one.
-            int itemHeight = Math.max(staticLayout.getHeight(), 150) + 10; // +10 padding
+            int itemHeight = staticLayout.getHeight();
+            if (rawImage != null) {
+                itemHeight = Math.max(itemHeight, 150);
+            }
+            itemHeight += 10; // +10 padding
 
             // Request a new page if we can't fit this one on one page.
             // Note this does not handle the case where 1 item does not fit on a page.
@@ -218,10 +217,6 @@ public class ReportPDFGenerator {
      * @throws RuntimeException if the android version is less than KitKat
      */
     private PdfDocument.Page createPDFPage(PdfDocument pdf) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            throw new RuntimeException("Incorrect Android version while generating report page.");
-        }
-
         pageCount ++;
 
         return pdf.startPage(
