@@ -4,199 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="top"
-        android:orientation="vertical"
+
+    <TextView
+        android:id="@+id/generateReportTitleTextView"
+        android:layout_width="294dp"
+        android:layout_height="32sp"
+        android:text="@string/generate_report"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/generateReportModeSelectLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateReportTitleTextView">
+
         <TextView
-            android:id="@+id/editTextText"
+            android:id="@+id/reportUsingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="@string/generate_report"
-            android:textSize="28sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/using"
+            tools:layout_editor_absoluteY="38dp" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/generateReportLotNumberText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/by_lot_number" />
-
-                <EditText
-                    android:id="@+id/reportLotInput"
-                    android:layout_width="379dp"
-                    android:layout_height="48dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textNoSuggestions"
-                    android:hint="@string/hint_lot_number"/>
-                <Button
-                    android:id="@+id/generateByLotNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gen_button_text"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="end"
-                    tools:ignore="ButtonStyle" />
-
-                <TextView
-                    android:id="@+id/generateReportNameText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/by_name" />
-
-                <EditText
-                    android:id="@+id/reportNameInput"
-                    android:layout_width="379dp"
-                    android:layout_height="48dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textNoSuggestions"
-                    android:hint="@string/hint_name"/>
-                <Button
-                    android:id="@+id/generateByName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gen_button_text"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="end"
-                    tools:ignore="ButtonStyle" />
-
-                <TextView
-                    android:id="@+id/generateReportCategoryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/by_category" />
-
-                <EditText
-                    android:id="@+id/reportCategoryInput"
-                    android:layout_width="379dp"
-                    android:layout_height="48dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textNoSuggestions"
-                    android:hint="@string/hint_category"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:orientation="horizontal"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:baselineAligned="false">
-                    <Button
-                        android:id="@+id/generateByCategoryDPOnly"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_desc_pic_only_button_text"
-                        tools:ignore="ButtonStyle" />
-
-                    <Button
-                        android:id="@+id/generateByCategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_button_text"
-                        tools:ignore="ButtonStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/generateReportPeriodText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/by_period" />
-
-                <EditText
-                    android:id="@+id/reportPeriodInput"
-                    android:layout_width="379dp"
-                    android:layout_height="48dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textNoSuggestions"
-                    android:hint="@string/hint_period_of_time"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:orientation="horizontal"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:baselineAligned="false">
-                    <Button
-                        android:id="@+id/generateByPeriodDPOnly"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_desc_pic_only_button_text"
-                        tools:ignore="ButtonStyle" />
-
-                    <Button
-                        android:id="@+id/generateByPeriod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_button_text"
-                        tools:ignore="ButtonStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/generateReportAllItemsText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/for_all_items" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:orientation="horizontal"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:baselineAligned="false">
-                    <Button
-                        android:id="@+id/generateAllDPOnly"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_desc_pic_only_button_text"
-                        tools:ignore="ButtonStyle" />
-
-                    <Button
-                        android:id="@+id/generateAll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gen_button_text"
-                        tools:ignore="ButtonStyle" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </ScrollView>
-
+        <Spinner
+            android:id="@+id/generateReportMethodSelectSpinner"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            tools:layout_editor_absoluteY="32dp" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/generateReportTextInput"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:hint="@string/hint_lot_number"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateReportModeSelectLayout" />
+
+    <CheckBox
+        android:id="@+id/generateReportWithPDOnlyCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/dec_pic_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateReportTextInput" />
+
+    <Button
+        android:id="@+id/generateReportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/generate_report"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateReportWithPDOnlyCheckBox" />
+
+    <TextView
+        android:id="@+id/generateReportMessageDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateReportButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
