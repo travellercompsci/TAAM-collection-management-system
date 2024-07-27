@@ -15,15 +15,27 @@ import java.util.List;
 
 public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.DisplayItemViewHolder> {
     private static List<DisplayItem> itemList;
+    private static String mode;
 
     public DisplayItemAdapter(List<DisplayItem> itemList) {
         this.itemList = itemList;
+        mode = "default";
+    }
+
+    public DisplayItemAdapter(List<DisplayItem> itemList, String mode) {
+        this.itemList = itemList;
+        this.mode = mode;
     }
 
     @NonNull
     @Override
     public DisplayItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.display_item, parent, false);
+        View view;
+        if (mode.equals("view")) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_display_item, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.display_item, parent, false);
+        }
         return new DisplayItemViewHolder(view);
     }
 
@@ -35,7 +47,9 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
         holder.textCategory.setText(item.getCategory());
         holder.textPeriod.setText(item.getPeriod());
         holder.textDescription.setText(item.getDescription());
-        holder.checkBox.setChecked(item.isSelected());
+        if (!mode.equals("view")) {
+            holder.checkBox.setChecked(item.isSelected());
+        }
         Picasso.get().load(item.getImage()).into(holder.displayImage);
     }
 
@@ -57,19 +71,21 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
             textPeriod = itemView.findViewById(R.id.textPeriod);
             textDescription = itemView.findViewById(R.id.textDescription);
             displayImage = itemView.findViewById(R.id.displayImage);
-            checkBox = itemView.findViewById(R.id.checkBox);
+            if (!mode.equals("view")) {
+                checkBox = itemView.findViewById(R.id.checkBox);
 
-            checkBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean isChecked = ((CheckBox) view).isChecked();
-                    if (isChecked) {
-                        itemList.get(getAdapterPosition()).setSelected(true);
-                    } else {
-                        itemList.get(getAdapterPosition()).setSelected(false);
+                checkBox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boolean isChecked = ((CheckBox) view).isChecked();
+                        if (isChecked) {
+                            itemList.get(getAdapterPosition()).setSelected(true);
+                        } else {
+                            itemList.get(getAdapterPosition()).setSelected(false);
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 }

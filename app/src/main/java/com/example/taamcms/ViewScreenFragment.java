@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,13 +25,22 @@ public class ViewScreenFragment extends LoaderFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_screen_fragment, container, false);
+        View view = inflater.inflate(R.layout.view_screen_fragment, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        itemAdapter = new DisplayItemAdapter(itemList);
+        itemAdapter = new DisplayItemAdapter(itemList, "view");
         recyclerView.setAdapter(itemAdapter);
+
+        Button buttonBack = view.findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new HomeScreenFragment());
+            }
+        });
 
         return view;
     }
