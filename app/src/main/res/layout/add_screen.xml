@@ -53,7 +53,7 @@
     <!-- Textbox 2 -->
 
     <EditText
-        android:id="@+id/textbox2"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Enter text"
@@ -79,7 +79,7 @@
     <!-- Textbox 3 -->
 
     <EditText
-        android:id="@+id/textbox3"
+        android:id="@+id/editTextCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -108,11 +108,10 @@
         app:layout_constraintTop_toBottomOf="@id/label2" />
 
     <EditText
-        android:id="@+id/textbox4"
+        android:id="@+id/editTextPeriod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:hint="Enter text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/label4"
@@ -136,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@id/label2" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start|top"
