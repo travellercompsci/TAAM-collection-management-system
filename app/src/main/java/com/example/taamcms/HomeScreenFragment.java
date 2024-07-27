@@ -47,6 +47,14 @@ public class HomeScreenFragment extends LoaderFragment {
         Button buttonView = view.findViewById(R.id.buttonView);
         Button buttonSearch = view.findViewById(R.id.buttonSearch);
 
+        buttonAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Todo: add login verification.
+                loadFragment(new AdminHomeScreenFragment());
+            }
+        });
+
         buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
