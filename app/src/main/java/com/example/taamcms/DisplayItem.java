@@ -8,6 +8,7 @@ public class DisplayItem {
     private String period;
     private String description;
     private String image;
+    private boolean isSelected;
 
     public DisplayItem() {}
 
@@ -19,6 +20,7 @@ public class DisplayItem {
         this.period = period;
         this.description = description;
         this.image = image;
+        isSelected = false;
     }
 
     // Getters and setters
@@ -36,4 +38,10 @@ public class DisplayItem {
     public void setImage(String image) { this.image = image; }
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+    public boolean isSelected() {
+        return isSelected;
+    }
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 }
