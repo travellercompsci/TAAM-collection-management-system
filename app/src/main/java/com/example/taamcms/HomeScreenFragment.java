@@ -33,18 +33,6 @@ public class HomeScreenFragment extends LoaderFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_screen_fragment, container, false);
 
-        Button buttonAdmin = view.findViewById(R.id.buttonAdmin);
-        Button buttonView = view.findViewById(R.id.buttonView);
-        Button buttonSearch = view.findViewById(R.id.buttonSearch);
-
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Todo: change this to the view screen.
-                loadFragment(new ReportScreenFragment());
-            }
-        });
-
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -54,6 +42,31 @@ public class HomeScreenFragment extends LoaderFragment {
 
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
         fetchItemsFromDatabase();
+
+        Button buttonAdmin = view.findViewById(R.id.buttonAdmin);
+        Button buttonView = view.findViewById(R.id.buttonView);
+        Button buttonSearch = view.findViewById(R.id.buttonSearch);
+
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<DisplayItem> viewItemList = new ArrayList<>();
+                for (DisplayItem item : itemList) {
+                    if (item.isSelected()) {
+                        viewItemList.add(item);
+                    }
+                }
+                loadFragment(new ViewScreenFragment(viewItemList));
+            }
+        });
+
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Todo: change this to the view screen.
+                loadFragment(new ReportScreenFragment());
+            }
+        });
 
         return view;
     }
