@@ -89,7 +89,13 @@ public class AdminHomeScreenFragment extends LoaderFragment {
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ArrayList<DisplayItem> removeItemList = new ArrayList<>();
+                for (DisplayItem item : itemList) {
+                    if (item.isSelected()) {
+                        removeItemList.add(item);
+                    }
+                }
+                loadFragment(new RemoveScreenFragment(removeItemList));
             }
         });
 
