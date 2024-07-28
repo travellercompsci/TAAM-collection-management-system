@@ -27,7 +27,7 @@ import java.util.List;
 public class HomeScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
-    private List<DisplayItem> itemList;
+    private List<DisplayItemCheckBox> itemList;
 
     private FirebaseDatabase db;
     private DatabaseReference itemsRef;
@@ -88,8 +88,8 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<DisplayItem> viewItemList = new ArrayList<>();
-                for (DisplayItem item : itemList) {
+                ArrayList<DisplayItemCheckBox> viewItemList = new ArrayList<>();
+                for (DisplayItemCheckBox item : itemList) {
                     if (item.isSelected()) {
                         viewItemList.add(item);
                     }
@@ -141,7 +141,7 @@ public class HomeScreenFragment extends LoaderFragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 itemList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    DisplayItem item = snapshot.getValue(DisplayItem.class);
+                    DisplayItemCheckBox item = new DisplayItemCheckBox(snapshot.getValue(DisplayItem.class));
                     itemList.add(item);
                 }
                 itemAdapter.notifyDataSetChanged();
@@ -152,11 +152,6 @@ public class HomeScreenFragment extends LoaderFragment {
 
             }
         });
-    }
-
-    private void loadStaticItems() {
-        // Load static items from strings.xml or hardcoded values
-        itemList.add(new DisplayItem(1, "test", "1", "Jade", "Ming", "this is d", "https://dictionary.cambridge.org/images/thumb/square_noun_002_35417.jpg?version=6.0.27"));
     }
 
     /**
