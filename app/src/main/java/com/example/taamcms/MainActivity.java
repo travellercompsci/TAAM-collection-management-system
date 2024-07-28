@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, new HomeScreenFragment());
+            transaction.replace(R.id.fragment_container, new HomeScreenFragment(false));
             transaction.addToBackStack(null);
             transaction.commit();
         }
