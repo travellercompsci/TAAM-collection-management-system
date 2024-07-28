@@ -7,26 +7,37 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import org.jetbrains.annotations.NotNull;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class RemoveScreenFragment extends LoaderFragment {
-    public void removeItem(Object obj){
-        // to be implemented
+import org.jetbrains.annotations.NotNull;
+import java.util.List;
+
+public class RemoveScreenFragment extends AdminHomeScreenFragment {
+    List <DisplayItem> itemstoberemoved;
+
+    public RemoveScreenFragment(List<DisplayItem> itemstoberemoved){
+        this.itemstoberemoved = itemstoberemoved;
+    }
+    public void removeItems(){
+        for(DisplayItem item : itemstoberemoved){
+            if(item.isSelected()){
+                itemstoberemoved.remove(item);
+            }
+        }
     }
     @Nullable
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.removefunctionscreen, container, false);
-        // Todo: handle the button inputs
         Button generateYesButton = view.findViewById(R.id.button3);
+        Button generateCancelButton = view.findViewById(R.id.button2);
         generateYesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeItem(v);
+                removeItems();
                 loadFragment(new AdminHomeScreenFragment());
             }
         });
-        Button generateCancelButton = view.findViewById(R.id.button2);
         generateCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

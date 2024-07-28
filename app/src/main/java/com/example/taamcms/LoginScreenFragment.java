@@ -28,7 +28,7 @@ public class LoginScreenFragment extends LoaderFragment {
         generateLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //loadFragment(new ScreenFragment());
+                loadFragment(new AdminHomeScreenFragment());
             }
         });
 
