@@ -51,7 +51,7 @@ public class HomeScreenFragment extends LoaderFragment {
             @Override
             public void onClick(View v) {
                 // Todo: add login verification.
-                loadFragment(new AdminHomeScreenFragment());
+                loadFragment(new LoginScreenFragment());
             }
         });
 
