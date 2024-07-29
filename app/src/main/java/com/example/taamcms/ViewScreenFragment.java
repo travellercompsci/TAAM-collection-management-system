@@ -16,9 +16,9 @@ import java.util.List;
 public class ViewScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
-    private List<DisplayItem> itemList;
+    private List<DisplayItemCheckBox> itemList;
 
-    public ViewScreenFragment(List<DisplayItem> itemList) {
+    public ViewScreenFragment(List<DisplayItemCheckBox> itemList) {
         this.itemList = itemList;
     }
 
