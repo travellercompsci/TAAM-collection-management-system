@@ -37,6 +37,14 @@ public class HomeScreenFragment extends LoaderFragment {
         Button buttonView = view.findViewById(R.id.buttonView);
         Button buttonSearch = view.findViewById(R.id.buttonSearch);
 
+        buttonAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Todo: replace this with the admin screen.
+                loadFragment(new AddScreenActivity());
+            }
+        });
+
         buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,10 +84,5 @@ public class HomeScreenFragment extends LoaderFragment {
 
             }
         });
-    }
-
-    private void loadStaticItems() {
-        // Load static items from strings.xml or hardcoded values
-        itemList.add(new DisplayItem(1, "test", "1", "Jade", "Ming", "this is d", "https://dictionary.cambridge.org/images/thumb/square_noun_002_35417.jpg?version=6.0.27"));
     }
 }

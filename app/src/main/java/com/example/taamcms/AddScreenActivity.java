@@ -25,7 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddScreenActivity extends Fragment {
+public class AddScreenActivity extends LoaderFragment {
     private Button buttonAddItem;
     private EditText editTextLot, editTextName, editTextCategory, editTextPeriod, editTextDescription;
     private ImageView imageView_picture;
