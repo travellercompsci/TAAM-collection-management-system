@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
-public class RemoveScreenFragment extends LoaderFragment {
+public class RemoveScreenFragment extends AdminHomeScreenFragment {
     List <DisplayItem> itemstoberemoved;
 
     private DatabaseReference itemsRef;
@@ -72,13 +72,13 @@ public class RemoveScreenFragment extends LoaderFragment {
                 for (DisplayItem item : itemstoberemoved) {
                     removeItem(item.getId());
                 }
-                loadFragment(new HomeScreenFragment(true));
+                loadFragment(new AdminHomeScreenFragment());
             }
         });
         generateCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new HomeScreenFragment(true));
+                loadFragment(new AdminHomeScreenFragment());
             }
         });
         return view;

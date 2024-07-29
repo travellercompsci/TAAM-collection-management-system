@@ -7,17 +7,6 @@
     <string name="button_upload">Upload file here</string>
     <string name="button_submit">Submit</string>
 
-    <!-- Home Screen -->
-    <string name="taam_full_name">Toronto Asian Art Museum Collections Management</string>
-    <string name="admin_button_content">Admin</string>
-    <string name="log_out_button_content">Log Out</string>
-    <string name="view_button_content">View</string>
-    <string name="search_button_content">Search</string>
-    <string name="add_button_content">Add</string>
-    <string name="remove_button_content">Remove</string>
-    <string name="report_button_content">Report</string>
-    <string name="admin_logged_in">Logged in as admin.</string>
-
     <!-- Report Screen -->
     <string name="generate_report">Generate Report</string>
 

@@ -14,15 +14,15 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.DisplayItemViewHolder> {
-    private static List<DisplayItemCheckBox> itemList;
+    private static List<DisplayItem> itemList;
     private static String mode;
 
-    public DisplayItemAdapter(List<DisplayItemCheckBox> itemList) {
+    public DisplayItemAdapter(List<DisplayItem> itemList) {
         this.itemList = itemList;
         mode = "default";
     }
 
-    public DisplayItemAdapter(List<DisplayItemCheckBox> itemList, String mode) {
+    public DisplayItemAdapter(List<DisplayItem> itemList, String mode) {
         this.itemList = itemList;
         this.mode = mode;
     }
@@ -41,16 +41,16 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DisplayItemViewHolder holder, int position) {
-        DisplayItemCheckBox item = itemList.get(position);
-        holder.textViewTitle.setText(item.item.getTitle());
-        holder.textLotNum.setText(item.item.getLot());
-        holder.textCategory.setText(item.item.getCategory());
-        holder.textPeriod.setText(item.item.getPeriod());
-        holder.textDescription.setText(item.item.getDescription());
+        DisplayItem item = itemList.get(position);
+        holder.textViewTitle.setText(item.getTitle());
+        holder.textLotNum.setText(item.getLot());
+        holder.textCategory.setText(item.getCategory());
+        holder.textPeriod.setText(item.getPeriod());
+        holder.textDescription.setText(item.getDescription());
         if (!mode.equals("view")) {
             holder.checkBox.setChecked(item.isSelected());
         }
-        Picasso.get().load(item.item.getImage()).into(holder.displayImage);
+        Picasso.get().load(item.getImage()).into(holder.displayImage);
     }
 
     @Override
