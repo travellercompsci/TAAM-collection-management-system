@@ -25,7 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddScreenActivity extends LoaderFragment {
+public class AddScreenActivity extends Fragment {
     private Button buttonAddItem;
     private EditText editTextLot, editTextName, editTextCategory, editTextPeriod, editTextDescription;
     private ImageView imageView_picture;
@@ -45,7 +45,7 @@ public class AddScreenActivity extends LoaderFragment {
         editTextPeriod = view1.findViewById(R.id.editTextPeriod);
         editTextDescription = view1.findViewById(R.id.editTextDescription);
         imageView_picture = view1.findViewById(R.id.imageView_picture);
-        buttonAddItem = view1.findViewById(R.id.submit_button);
+        buttonAddItem = view1.findViewById(R.id.submit);
 
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
 
