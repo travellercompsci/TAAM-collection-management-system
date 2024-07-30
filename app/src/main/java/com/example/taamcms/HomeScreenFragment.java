@@ -49,31 +49,7 @@ public class HomeScreenFragment extends LoaderFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
-        View view = inflater.inflate(R.layout.home_screen_fragment, container, false);
-
-        Button buttonAdmin = view.findViewById(R.id.buttonAdmin);
-        Button buttonView = view.findViewById(R.id.buttonView);
-        Button buttonSearch = view.findViewById(R.id.buttonSearch);
-
-        buttonAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Todo: replace this with the admin screen.
-                loadFragment(new AddScreenActivity());
-            }
-        });
-
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Todo: change this to the view screen.
-                loadFragment(new ReportScreenFragment());
-            }
-        });
-=======
         view = inflater.inflate(R.layout.home_screen_fragment, container, false);
->>>>>>> 4261414 (feat: added functionality for Add button on homescreen)
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -182,8 +158,6 @@ public class HomeScreenFragment extends LoaderFragment {
             }
         });
     }
-<<<<<<< HEAD
-=======
 
     /**
      * Sets if this home screen should display the admin controls or that of the user.
@@ -228,5 +202,4 @@ public class HomeScreenFragment extends LoaderFragment {
     public boolean getAdminStatus() {
         return isAdmin;
     }
->>>>>>> 4261414 (feat: added functionality for Add button on homescreen)
 }
