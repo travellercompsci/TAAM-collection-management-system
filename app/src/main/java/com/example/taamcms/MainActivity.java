@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
             transaction.addToBackStack(null);
             transaction.commit();
         }
-        // Todo: else case
+    }
+
+    @Override
+    public void onBackPressed() {
+        // 1 item means they're on the home screen and we don't want them to go to a blank screen.
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            super.onBackPressed();
+        }
     }
 }
