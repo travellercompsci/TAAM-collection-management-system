@@ -12,7 +12,7 @@ abstract public class LoaderFragment extends Fragment {
     protected void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(fragment.getClass().getName());
         transaction.commit();
     }
 }
