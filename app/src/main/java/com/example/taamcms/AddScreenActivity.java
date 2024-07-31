@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -142,11 +143,24 @@ public class AddScreenActivity extends LoaderFragment {
         String lot = editTextLot.getText().toString().trim();
         String category = editTextCategory.getText().toString().trim();
         String period = editTextPeriod.getText().toString().trim();
-        String image = imageView_picture.getTag().toString();
         String description = editTextDescription.getText().toString().trim();
+        String image = "";
 
-        if (name.isEmpty() || lot.isEmpty() ||category.isEmpty() || period.isEmpty() || description.isEmpty() || image == null) {
-            Toast.makeText(getContext(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
+        if (imageView_picture.getTag() != null) {
+            image = imageView_picture.getTag().toString();
+        }
+
+
+
+        Log.d("AddItem", "Name: " + name);
+        Log.d("AddItem", "Lot: " + lot);
+        Log.d("AddItem", "Category: " + category);
+        Log.d("AddItem", "Period: " + period);
+        Log.d("AddItem", "Description: " + description);
+        Log.d("AddItem", "Image: " + image);
+
+        if (name.isEmpty() || lot.isEmpty() || category.isEmpty() || period.isEmpty() || description.isEmpty() || image.isEmpty()) {
+            Toast.makeText(getActivity(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
