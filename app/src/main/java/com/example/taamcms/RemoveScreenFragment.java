@@ -35,7 +35,7 @@ public class RemoveScreenFragment extends LoaderFragment {
                 boolean itemFound = false;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DisplayItem item = snapshot.getValue(DisplayItem.class);
-                    if (item != null && item.getId() == id) {
+                    if (item != null && item.getId().equals(id)) {
                         snapshot.getRef().removeValue().addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getContext(), "Item deleted", Toast.LENGTH_SHORT).show();

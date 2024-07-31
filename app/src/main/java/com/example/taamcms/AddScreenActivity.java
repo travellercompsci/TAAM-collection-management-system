@@ -45,6 +45,7 @@ public class AddScreenActivity extends LoaderFragment {
     private ImageView imageView_picture;
     public Uri imageUri;
 
+    private String currentImagePath;
     private FirebaseDatabase db;
     private DatabaseReference itemsRef;
     private FirebaseStorage storage;
@@ -82,6 +83,7 @@ public class AddScreenActivity extends LoaderFragment {
             @Override
             public void onClick(View v) {
                 addItem();
+                loadFragment(new HomeScreenFragment(true));
             }
         });
 
@@ -108,7 +110,8 @@ public class AddScreenActivity extends LoaderFragment {
 
     private void uploadPicture() {
         final String randKey = UUID.randomUUID().toString();
-        StorageReference mountainsRef = storeRef.child("images/" + randKey);
+        currentImagePath = "images/" + randKey;
+        StorageReference mountainsRef = storeRef.child(currentImagePath);
 
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setTitle("Uploading Image...");
@@ -144,13 +147,7 @@ public class AddScreenActivity extends LoaderFragment {
         String category = editTextCategory.getText().toString().trim();
         String period = editTextPeriod.getText().toString().trim();
         String description = editTextDescription.getText().toString().trim();
-        String image = "";
-
-        if (imageView_picture.getTag() != null) {
-            image = imageView_picture.getTag().toString();
-        }
-
-
+        String image = currentImagePath;
 
         Log.d("AddItem", "Name: " + name);
         Log.d("AddItem", "Lot: " + lot);
@@ -159,12 +156,12 @@ public class AddScreenActivity extends LoaderFragment {
         Log.d("AddItem", "Description: " + description);
         Log.d("AddItem", "Image: " + image);
 
-        if (name.isEmpty() || lot.isEmpty() || category.isEmpty() || period.isEmpty() || description.isEmpty() || image.isEmpty()) {
+        if (name.isEmpty() || lot.isEmpty() || category.isEmpty() || period.isEmpty() || description.isEmpty() || image == null) {
             Toast.makeText(getActivity(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        itemsRef = db.getReference("categories/" + category);
+        itemsRef = db.getReference("Displays/");
         String id = itemsRef.push().getKey();
         DisplayItem item = new DisplayItem(id, name, lot, category, period, description, image);
 
