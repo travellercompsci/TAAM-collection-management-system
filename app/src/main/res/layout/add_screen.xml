@@ -8,7 +8,6 @@
 
     <!-- Label 1 -->
 
-<<<<<<< Updated upstream
 
     <TextView
         android:id="@+id/labelLot"
@@ -21,11 +20,8 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-=======
->>>>>>> Stashed changes
     <!-- Textbox 1 -->
     <!--        app:layout_constraintMarginTop="16dp"-->
-<<<<<<< Updated upstream
     <!-- Label 2 -->
     <EditText
         android:id="@+id/editTextLot"
@@ -99,105 +95,6 @@
         app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toEndOf="@id/labelCategory"
         app:layout_constraintTop_toTopOf="@id/labelCategory"
-=======
-
-    <!-- Label 2 -->
-
-    <!-- Textbox 2 -->
-
-    <!-- Label 3 -->
-
-    <!-- Textbox 3 -->
-
-
-    <!-- Label 4 -->
-
-    <!-- Textbox 4 -->
-
-    <!-- Label 5 -->
-
-    <!-- Textbox 5 -->
-
-    <!-- Label for Upload -->
-
-    <!-- Button for Upload -->
-
-    <TextView
-        android:id="@+id/label1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="88dp"
-        android:fontFamily="@font/lato"
-        android:text="Lot Number:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textbox1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="35dp"
-        android:fontFamily="@font/lato"
-        android:hint="Enter text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toEndOf="@id/label1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.5" />
-
-    <TextView
-        android:id="@+id/label2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="156dp"
-        android:fontFamily="@font/lato"
-        android:text="Name:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textbox2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:fontFamily="@font/lato"
-        android:hint="Enter text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toEndOf="@id/label2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.5" />
-
-    <TextView
-        android:id="@+id/label3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="220dp"
-        android:fontFamily="@font/lato"
-        android:text="Category:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textbox3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/lato"
-        android:hint="Enter text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toEndOf="@id/label3"
-        app:layout_constraintTop_toTopOf="parent"
->>>>>>> Stashed changes
         app:layout_constraintWidth_percent="0.5" />
 
     <TextView
@@ -205,13 +102,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-<<<<<<< Updated upstream
         android:layout_marginLeft="40dp"
         android:layout_marginTop="80dp"
-=======
-        android:layout_marginTop="124dp"
-        android:fontFamily="@font/lato"
->>>>>>> Stashed changes
         android:text="Period:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -221,7 +113,6 @@
         android:id="@+id/editTextPeriod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -230,15 +121,6 @@
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toEndOf="@id/labelPeriod"
         app:layout_constraintTop_toBottomOf="@+id/editTextCategory"
-=======
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/lato"
-        android:hint="Enter text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/label4"
-        app:layout_constraintTop_toTopOf="parent"
->>>>>>> Stashed changes
         app:layout_constraintWidth_percent="0.5" />
 
     <TextView
@@ -246,13 +128,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-<<<<<<< Updated upstream
         android:layout_marginLeft="40dp"
         android:layout_marginTop="152dp"
-=======
-        android:layout_marginTop="192dp"
-        android:fontFamily="@font/lato"
->>>>>>> Stashed changes
         android:text="Description:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -262,61 +139,34 @@
         android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
         android:gravity="start|top"
         android:hint="Enter text"
         android:inputType="textMultiLine"
         android:minLines="3"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="@id/labelDescription"
         app:layout_constraintTop_toBottomOf="@id/labelDescription"
         app:layout_constraintWidth_percent="0.75" />
     <!-- Label for Upload -->
     <!-- Button for Upload -->
-=======
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/label5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.75" />
->>>>>>> Stashed changes
 
     <TextView
         android:id="@+id/label_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-<<<<<<< Updated upstream
         android:layout_marginLeft="40dp"
         android:layout_marginTop="28dp"
         android:text="Upload Picture/Video:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
-=======
-        android:layout_marginTop="504dp"
-        android:text="Upload Picture/Video:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="536dp"
-        android:text="Upload"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
->>>>>>> Stashed changes
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="16dp"
@@ -333,12 +183,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_upload"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
-=======
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="72dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
->>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>
