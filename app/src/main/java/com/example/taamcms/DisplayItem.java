@@ -1,7 +1,7 @@
 package com.example.taamcms;
 
 public class DisplayItem {
-    private int id;
+    private String id;
     private String title;
     private String lot;
     private String category;
@@ -11,7 +11,7 @@ public class DisplayItem {
 
     public DisplayItem() {}
 
-    public DisplayItem(int id, String title, String lot, String category, String period, String description, String image) {
+    public DisplayItem(String id, String title, String lot, String category, String period, String description, String image) {
         this.id = id;
         this.title = title;
         this.lot = lot;
@@ -22,8 +22,8 @@ public class DisplayItem {
     }
 
     // Getters and setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getLot() { return lot; }

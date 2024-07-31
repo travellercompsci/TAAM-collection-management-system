@@ -105,6 +105,13 @@ public class HomeScreenFragment extends LoaderFragment {
                 loadFragment(new ReportScreenFragment());
             }
         });
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Todo: change this to the add screen.
+                loadFragment(new AddCollectionActivity());
+            }
+        });
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
