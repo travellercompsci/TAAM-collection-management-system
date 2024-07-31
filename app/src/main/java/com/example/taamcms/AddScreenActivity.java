@@ -1,8 +1,12 @@
 package com.example.taamcms;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,16 +26,28 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-public class AddScreenActivity extends Fragment {
+import java.util.UUID;
+
+public class AddScreenActivity extends LoaderFragment {
     private Button buttonAddItem;
     private EditText editTextLot, editTextName, editTextCategory, editTextPeriod, editTextDescription;
     private ImageView imageView_picture;
+    public Uri imageUri;
 
     private FirebaseDatabase db;
     private DatabaseReference itemsRef;
+    private FirebaseStorage storage;
+    private StorageReference storeRef;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +65,17 @@ public class AddScreenActivity extends Fragment {
 
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
 
+        storage = FirebaseStorage.getInstance();
+        storeRef = storage.getReference();
+
+        imageView_picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choosePic();
+            }
+
+        });
+
         // Handle button click
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +88,55 @@ public class AddScreenActivity extends Fragment {
 
     }
 
+    private void choosePic() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
+            imageUri = data.getData();
+            imageView_picture.setImageURI(imageUri);
+            uploadPicture();
+        }
+    }
+
+    private void uploadPicture() {
+        final String randKey = UUID.randomUUID().toString();
+        StorageReference mountainsRef = storeRef.child("images/" + randKey);
+
+        final ProgressDialog pd = new ProgressDialog(getContext());
+        pd.setTitle("Uploading Image...");
+        pd.show();
+
+        mountainsRef.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        pd.dismiss();
+                        Snackbar.make(getView(), "Image Uploaded.", Snackbar.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        pd.dismiss();
+                        Toast.makeText(getContext(), "Failed To Upload", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                        double progPercent = (100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        pd.setMessage("Percentage: " + (int) progPercent + "%");
+                    }
+                });
+    }
+
     private void addItem() {
         String name = editTextName.getText().toString().trim();
         String lot = editTextLot.getText().toString().trim();
@@ -69,7 +145,7 @@ public class AddScreenActivity extends Fragment {
         String image = imageView_picture.getTag().toString();
         String description = editTextDescription.getText().toString().trim();
 
-        if (name.isEmpty() || lot.isEmpty() ||category.isEmpty() || period.isEmpty() || description.isEmpty() || image.isEmpty()) {
+        if (name.isEmpty() || lot.isEmpty() ||category.isEmpty() || period.isEmpty() || description.isEmpty() || image == null) {
             Toast.makeText(getContext(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
