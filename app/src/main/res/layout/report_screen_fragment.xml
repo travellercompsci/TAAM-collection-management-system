@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generateReportTitleTextView">
+        app:layout_constraintTop_toBottomOf="@+id/generateReportTitleTextView"
+        android:autofillHints="">
 
         <TextView
             android:id="@+id/reportUsingTextView"
@@ -37,7 +37,6 @@
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
             tools:layout_editor_absoluteY="32dp" />
     </LinearLayout>
 
@@ -46,7 +45,6 @@
         android:layout_width="208dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:ems="10"
         android:hint="@string/hint_lot_number"
         android:inputType="text"
@@ -58,7 +56,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:text="@string/dec_pic_only"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generateReportTextInput" />
@@ -68,7 +65,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:text="@string/generate_report"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generateReportWithPDOnlyCheckBox" />
