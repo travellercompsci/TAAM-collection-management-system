@@ -1,21 +1,35 @@
 package com.example.taamcms;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.DisplayItemViewHolder> {
     private static List<DisplayItemCheckBox> itemList;
     private static String mode;
+
+    private StorageReference storeRef;
 
     public DisplayItemAdapter(List<DisplayItemCheckBox> itemList) {
         this.itemList = itemList;
@@ -50,7 +64,25 @@ public class DisplayItemAdapter extends RecyclerView.Adapter<DisplayItemAdapter.
         if (!mode.equals("view")) {
             holder.checkBox.setChecked(item.isSelected());
         }
-        Picasso.get().load(item.item.getImage()).into(holder.displayImage);
+
+        storeRef = FirebaseStorage.getInstance().getReference(item.item.getImage());
+        try {
+            File localFile = File.createTempFile("tempfile", ".jpg");
+            storeRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                    holder.displayImage.setImageBitmap(bitmap);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(holder.displayImage.getContext(), "Failed to retrieve image", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
