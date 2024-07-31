@@ -80,7 +80,6 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Todo: add login verification.
                 loadFragment(new LoginScreenFragment());
             }
         });
@@ -108,16 +107,7 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Todo: change this to the add screen.
-                loadFragment(new AddCollectionActivity());
-            }
-        });
-
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Todo: change this to the add screen.
-                loadFragment(new ReportScreenFragment());
+                loadFragment(new AddScreenActivity());
             }
         });
 
