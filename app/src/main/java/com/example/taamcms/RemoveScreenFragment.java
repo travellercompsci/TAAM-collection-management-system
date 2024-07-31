@@ -27,7 +27,7 @@ public class RemoveScreenFragment extends LoaderFragment {
     public RemoveScreenFragment(List<DisplayItem> itemstoberemoved){
         this.itemstoberemoved = itemstoberemoved;
     }
-    public void removeItem(int id) {
+    public void removeItem(String id) {
         itemsRef = db.getReference("Displays/");
         itemsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
