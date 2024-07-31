@@ -113,6 +113,14 @@ public class HomeScreenFragment extends LoaderFragment {
             }
         });
 
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Todo: change this to the add screen.
+                loadFragment(new ReportScreenFragment());
+            }
+        });
+
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
