@@ -29,13 +29,13 @@ public class LoginScreenFragment extends LoaderFragment {
     @Nullable
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.adminscreen, container, false);
+        View view = inflater.inflate(R.layout.login_screen, container, false);
         // Todo: handle the button inputs
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
         Button generateLoginButton = view.findViewById(R.id.button);
 
-        username = view.findViewById(R.id.editTextTextEmailAddress2);
-        password = view.findViewById(R.id.editTextTextEmailAddress);
+        username = view.findViewById(R.id.loginScreenUsernameInput);
+        password = view.findViewById(R.id.loginScreenPasswordInput);
 
         generateLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

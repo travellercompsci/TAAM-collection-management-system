@@ -18,6 +18,13 @@
     <string name="report_button_content">Report</string>
     <string name="admin_logged_in">Logged in as admin.</string>
 
+    <!-- Login Screen -->
+    <string name="username_input_text">Username:</string>
+    <string name="password_input_text">Password:</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="log_in_button_content">Log in</string>
+
     <!-- Report Screen -->
     <string name="generate_report">Generate Report</string>
 
