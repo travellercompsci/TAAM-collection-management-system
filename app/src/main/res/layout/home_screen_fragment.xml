@@ -127,7 +127,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:layout_marginTop="8dp">
 
             <Button
                 android:id="@+id/buttonAdd"
