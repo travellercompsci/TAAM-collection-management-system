@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
+        android:fontFamily="@font/oswald"
         android:textSize="18sp"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true" />
@@ -91,9 +92,7 @@
         android:text="@string/button_upload"
         android:layout_below="@id/description"
         android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/blue_rectangular_button"
-        android:textColor="#FFFFFF" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/submit_button"
@@ -102,8 +101,6 @@
         android:text="@string/button_submit"
         android:layout_below="@id/upload_button"
         android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/blue_rectangular_button"
-        android:textColor="#FFFFFF" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

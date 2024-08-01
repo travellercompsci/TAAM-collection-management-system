@@ -7,8 +7,9 @@
 
     <TextView
         android:id="@+id/generateReportTitleTextView"
-        android:layout_width="294dp"
-        android:layout_height="32sp"
+        android:layout_width="296dp"
+        android:layout_height="56dp"
+        android:fontFamily="@font/oswald"
         android:text="@string/generate_report"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="28dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generateReportTitleTextView">
@@ -45,8 +46,8 @@
         android:id="@+id/generateReportTextInput"
         android:layout_width="208dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/hint_lot_number"
         android:inputType="text"
@@ -57,8 +58,8 @@
         android:id="@+id/generateReportWithPDOnlyCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
         android:text="@string/dec_pic_only"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generateReportTextInput" />
@@ -67,8 +68,8 @@
         android:id="@+id/generateReportButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
         android:text="@string/generate_report"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generateReportWithPDOnlyCheckBox" />

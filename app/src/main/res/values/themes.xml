@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.TAAMCMS" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:buttonStyle">@style/Theme.TAAMCMS.ButtonStyle</item>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+
+    <style name="Theme.TAAMCMS.ButtonStyle" parent="Widget.AppCompat.Button">
+    <item name="android:background">@color/golden</item>
+
+    </style>
+
+
 
     <style name="Theme.TAAMCMS" parent="Base.Theme.TAAMCMS" />
 </resources>
