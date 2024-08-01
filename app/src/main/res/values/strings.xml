@@ -36,8 +36,9 @@
     <string name="dec_pic_only">Generate report with description and picture only.</string>
 
     <string name="generating_report" tools:ignore="TypographyEllipsis">Generating report...\nPlease don\'t close this screen.</string>
+    <string name="generating_report_progress" tools:ignore="TypographyEllipsis">%1$s \n%2$d\%% complete</string>
     <string name="report_complete">Report generation complete.\nIt is in your Downloads folder.</string>
-    <string name="generate_report_input_empty_error">Please enter the %1$s inside the text input above, before generating the report.</string>
+    <string name="generate_report_input_empty_error">Please enter the %1$s.</string>
     <string name="generate_report_database_error">A database error occurred when generating the PDF.</string>
     <string name="unknown_error">An unknown error has occurred while generating the PDF. Please try again.</string>
     <string name="generate_report_success">Successfully generated report. The PDF has been placed in your downloads folder with the file name: %1$s</string>
