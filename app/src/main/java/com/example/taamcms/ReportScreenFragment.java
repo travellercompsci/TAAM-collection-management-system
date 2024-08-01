@@ -175,10 +175,12 @@ public class ReportScreenFragment extends LoaderFragment {
         String inputText = String.valueOf(textInput.getText()).toLowerCase();
         // Display an error if the text input is empty but we require a filter.
         if (inputText.isEmpty() && mode.requireTextInput) {
-            messageDisplay.setText(String.format(
+            messageDisplay.setText("");
+            textInput.setError(String.format(
                     getResources().getString(R.string.generate_report_input_empty_error),
                     mode.dropDownTitle.toLowerCase()
             ));
+            textInput.requestFocus();
             return;
         }
 
@@ -188,6 +190,7 @@ public class ReportScreenFragment extends LoaderFragment {
 
         // Display the generating message.
         messageDisplay.setText(R.string.generating_report);
+        textInput.setError(null);
 
         // Disable the button from being clicked.
         generateReportButton.setClickable(false);
