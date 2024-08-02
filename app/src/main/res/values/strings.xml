@@ -18,6 +18,21 @@
     <string name="report_button_content">Report</string>
     <string name="admin_logged_in">Logged in as admin.</string>
 
+    <!-- Add Item Screen -->
+    <string name="no_lot_number_error">Please enter a lot number.</string>
+    <string name="no_name_error">Please enter a name.</string>
+    <string name="no_category_error">Please enter a category.</string>
+    <string name="no_period_error">Please enter a period.</string>
+    <string name="no_description_error">Please enter a description.</string>
+    <string name="no_image_error">Please upload an image.</string>
+
+    <!-- Login Screen -->
+    <string name="username_input_text">Username:</string>
+    <string name="password_input_text">Password:</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="log_in_button_content">Log in</string>
+
     <!-- Report Screen -->
     <string name="generate_report">Generate Report</string>
 
@@ -29,8 +44,9 @@
     <string name="dec_pic_only">Generate report with description and picture only.</string>
 
     <string name="generating_report" tools:ignore="TypographyEllipsis">Generating report...\nPlease don\'t close this screen.</string>
+    <string name="generating_report_progress" tools:ignore="TypographyEllipsis">%1$s \n%2$d\%% complete</string>
     <string name="report_complete">Report generation complete.\nIt is in your Downloads folder.</string>
-    <string name="generate_report_input_empty_error">Please enter the %1$s inside the text input above, before generating the report.</string>
+    <string name="generate_report_input_empty_error">Please enter the %1$s.</string>
     <string name="generate_report_database_error">A database error occurred when generating the PDF.</string>
     <string name="unknown_error">An unknown error has occurred while generating the PDF. Please try again.</string>
     <string name="generate_report_success">Successfully generated report. The PDF has been placed in your downloads folder with the file name: %1$s</string>

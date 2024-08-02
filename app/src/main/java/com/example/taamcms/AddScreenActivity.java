@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -42,7 +43,7 @@ import java.util.UUID;
 public class AddScreenActivity extends LoaderFragment {
     private Button buttonAddItem;
     private EditText editTextLot, editTextName, editTextCategory, editTextPeriod, editTextDescription;
-    private ImageView imageView_picture;
+    private ImageView imageViewPicture;
     public Uri imageUri;
 
     private String currentImagePath;
@@ -62,7 +63,7 @@ public class AddScreenActivity extends LoaderFragment {
         editTextCategory = view1.findViewById(R.id.editTextCategory);
         editTextPeriod = view1.findViewById(R.id.editTextPeriod);
         editTextDescription = view1.findViewById(R.id.editTextDescription);
-        imageView_picture = view1.findViewById(R.id.imageView_picture);
+        imageViewPicture = view1.findViewById(R.id.imageView_picture);
         buttonAddItem = view1.findViewById(R.id.submit);
 
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
@@ -70,7 +71,7 @@ public class AddScreenActivity extends LoaderFragment {
         storage = FirebaseStorage.getInstance();
         storeRef = storage.getReference();
 
-        imageView_picture.setOnClickListener(new View.OnClickListener() {
+        imageViewPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 choosePic();
@@ -82,8 +83,9 @@ public class AddScreenActivity extends LoaderFragment {
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem();
-                loadFragment(new HomeScreenFragment(true));
+                if (addItem()) {
+                    loadFragment(new HomeScreenFragment());
+                }
             }
         });
 
@@ -103,7 +105,7 @@ public class AddScreenActivity extends LoaderFragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
             imageUri = data.getData();
-            imageView_picture.setImageURI(imageUri);
+            imageViewPicture.setImageURI(imageUri);
             uploadPicture();
         }
     }
@@ -141,7 +143,10 @@ public class AddScreenActivity extends LoaderFragment {
                 });
     }
 
-    private void addItem() {
+    /**
+     * @return If all the fields are filled correctly.
+     */
+    private boolean addItem() {
         String name = editTextName.getText().toString().trim();
         String lot = editTextLot.getText().toString().trim();
         String category = editTextCategory.getText().toString().trim();
@@ -156,9 +161,54 @@ public class AddScreenActivity extends LoaderFragment {
         Log.d("AddItem", "Description: " + description);
         Log.d("AddItem", "Image: " + image);
 
-        if (name.isEmpty() || lot.isEmpty() || category.isEmpty() || period.isEmpty() || description.isEmpty() || image == null) {
-            Toast.makeText(getActivity(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
-            return;
+        boolean containsError = false;
+        if (name.isEmpty()) {
+            editTextName.setError(getString(R.string.no_name_error));
+            editTextName.requestFocus();
+            containsError = true;
+        } else {
+            editTextName.setError(null);
+        }
+
+        if (lot.isEmpty()) {
+            editTextLot.setError(getString(R.string.no_lot_number_error));
+            editTextLot.requestFocus();
+            containsError = true;
+        } else {
+            editTextLot.setError(null);
+        }
+
+        if (category.isEmpty()) {
+            editTextCategory.setError(getString(R.string.no_category_error));
+            editTextCategory.requestFocus();
+            containsError = true;
+        } else {
+            editTextCategory.setError(null);
+        }
+
+        if (period.isEmpty()) {
+            editTextPeriod.setError(getString(R.string.no_period_error));
+            editTextPeriod.requestFocus();
+            containsError = true;
+        } else {
+            editTextPeriod.setError(null);
+        }
+
+        if (description.isEmpty()) {
+            editTextDescription.setError(getString(R.string.no_description_error));
+            editTextDescription.requestFocus();
+            containsError = true;
+        } else {
+            editTextDescription.setError(null);
+        }
+
+        if (image == null) {
+            Toast.makeText(getContext(), "Please upload an image.", Toast.LENGTH_SHORT).show();
+            containsError = true;
+        }
+
+        if (containsError) {
+            return false;
         }
 
         itemsRef = db.getReference("Displays/");
@@ -172,6 +222,8 @@ public class AddScreenActivity extends LoaderFragment {
                 Toast.makeText(getContext(), "Failed to add item", Toast.LENGTH_SHORT).show();
             }
         });
+
+        return true;
     }
 
 }
