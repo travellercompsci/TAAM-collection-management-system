@@ -220,6 +220,9 @@ public class ReportPDFGenerator {
     }
 
 
+    /**
+     * Make sure items has at last an item inside it
+     */
     private void fetchImageAndAddItem(GeneratePDFCallback callback, int index) {
         if (index == items.size()) {
             return;
@@ -272,6 +275,12 @@ public class ReportPDFGenerator {
         // Item count
         canvas.drawText("Items (" + this.items.size() + ")", marginSize, marginSize + 24, textFont);
         pageYOffset += 10;
+
+        if (items.isEmpty()) {
+            callback.onStatusUpdate(0);
+            savePDFFile(fileName);
+            return;
+        }
 
         // Generate PDF.
         fetchImageAndAddItem(new GeneratePDFCallback() {
