@@ -100,8 +100,7 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Todo: change this to the search screen.
-                loadFragment(new ReportScreenFragment());
+                loadFragment(new SearchScreenFragment());
             }
         });
         buttonAdd.setOnClickListener(new View.OnClickListener() {
