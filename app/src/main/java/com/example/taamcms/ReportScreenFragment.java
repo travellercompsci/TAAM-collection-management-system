@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -175,10 +176,12 @@ public class ReportScreenFragment extends LoaderFragment {
         String inputText = String.valueOf(textInput.getText()).toLowerCase();
         // Display an error if the text input is empty but we require a filter.
         if (inputText.isEmpty() && mode.requireTextInput) {
-            messageDisplay.setText(String.format(
+            messageDisplay.setText("");
+            textInput.setError(String.format(
                     getResources().getString(R.string.generate_report_input_empty_error),
                     mode.dropDownTitle.toLowerCase()
             ));
+            textInput.requestFocus();
             return;
         }
 
@@ -188,6 +191,7 @@ public class ReportScreenFragment extends LoaderFragment {
 
         // Display the generating message.
         messageDisplay.setText(R.string.generating_report);
+        textInput.setError(null);
 
         // Disable the button from being clicked.
         generateReportButton.setClickable(false);
@@ -197,34 +201,55 @@ public class ReportScreenFragment extends LoaderFragment {
         items.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ReportPDFGenerator pdfGenerator = new ReportPDFGenerator(
-                        imageDescriptionOnlyCheckbox.isChecked()
-                );
+                ArrayList<DisplayItem> filtered = new ArrayList<>();
 
                 // Query the resource for the respective filter.
                 for (DataSnapshot child : snapshot.getChildren()) {
                     DisplayItem item = child.getValue(DisplayItem.class);
 
                     if (mode.filter.isWanted(item, inputText)) {
-                        pdfGenerator.addItem(item);
+                        filtered.add(item);
                     }
                 }
 
                 // Generate pdf.
                 String dateValue = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss", Locale.getDefault()).format(new Date());
                 String fileName = "TAAM_collection_report_" + dateValue + ".pdf";
-                boolean success = pdfGenerator.generateReport(getContext(), fileName);
 
-                // Re-enable button and display success message.
-                generateReportButton.setClickable(true);
-                if (success) {
-                    messageDisplay.setText(String.format(
-                            getResources().getString(R.string.generate_report_success),
-                            fileName
-                    ));
-                } else {
-                    messageDisplay.setText(R.string.unknown_error);
-                }
+                ReportPDFGenerator pdfGenerator = new ReportPDFGenerator(
+                        imageDescriptionOnlyCheckbox.isChecked(),
+                        filtered,
+                        getContext()
+                );
+                pdfGenerator.generateReport(fileName, new GeneratePDFCallback() {
+                    @Override
+                    public void onStatusUpdate(int progress) {
+                        if (progress < filtered.size()) {
+                            double progressPercent = (double)progress/(double)filtered.size();
+                            int percentage = (int)(progressPercent*100.0);
+
+                            String progressText = String.format(
+                                    getString(R.string.generating_report_progress),
+                                    getString(R.string.generating_report),
+                                    percentage
+                            );
+
+                            messageDisplay.setText(progressText);
+                        } else {
+                            generateReportButton.setClickable(true);
+                            messageDisplay.setText(String.format(
+                                    getResources().getString(R.string.generate_report_success),
+                                    fileName
+                            ));
+                        }
+                    }
+
+                    @Override
+                    public void onError() {
+                        generateReportButton.setClickable(true);
+                        messageDisplay.setText(R.string.unknown_error);
+                    }
+                });
             }
 
             @Override
