@@ -21,22 +21,23 @@ public class LoginScreenPresenter {
             model.isValidCredentials(username, password, new CredentialValidationCallback() {
                 @Override
                 public void isSuccessful() {
+                    view.loginSuccess();
 
                 }
 
                 @Override
                 public void invalidUsername() {
-
+                    view.showUsernameErr("Invalid username");
                 }
 
                 @Override
                 public void invalidPassword() {
-
+                    view.showPasswordErr("Invalid password");
                 }
 
                 @Override
                 public void databaseError() {
-
+                    view.showGeneralErr("Database error occurred");
                 }
             });
         }
