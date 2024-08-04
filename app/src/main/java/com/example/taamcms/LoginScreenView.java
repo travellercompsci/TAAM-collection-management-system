@@ -21,7 +21,9 @@ public class LoginScreenView extends LoaderFragment {
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_screen, container, false);
-        // Todo: handle the button inputs
+
+        presenter = new LoginScreenPresenter(this, new LoginScreenModule());
+
         Button generateLoginButton = view.findViewById(R.id.button);
 
         username = view.findViewById(R.id.loginScreenUsernameInput);

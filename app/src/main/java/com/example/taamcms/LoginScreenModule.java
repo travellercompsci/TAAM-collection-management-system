@@ -51,7 +51,7 @@ public class LoginScreenModule {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                callback.databaseError();
+                callback.databaseError(databaseError.toString());
             }
         });
     }

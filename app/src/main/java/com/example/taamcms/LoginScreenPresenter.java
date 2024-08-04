@@ -10,12 +10,15 @@ public class LoginScreenPresenter {
         this.model = model;
     }
 
-    public void handleLogin(String username, String password) {
+    public void handleLogin() {
+        String username = view.getUsername();
+        String password = view.getPassword();
+
         if (username.equals("")) {
-            view.showUsernameErr(username);
+            view.showUsernameErr("Please enter a username.");
         }
         else if (password.equals("")){
-            view.showPasswordErr(password);
+            view.showPasswordErr("Please enter a password.");
         }
         else {
             model.isValidCredentials(username, password, new CredentialValidationCallback() {
@@ -36,8 +39,8 @@ public class LoginScreenPresenter {
                 }
 
                 @Override
-                public void databaseError() {
-                    view.showGeneralErr("Database error occurred");
+                public void databaseError(String message) {
+                    view.showGeneralErr("A database error occurred: " + message);
                 }
             });
         }

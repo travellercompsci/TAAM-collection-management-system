@@ -22,5 +22,5 @@ public interface CredentialValidationCallback {
     /**
      * Called if a database error occurs.
      */
-    void databaseError();
+    void databaseError(String errorMessage);
 }
