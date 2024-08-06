@@ -75,6 +75,7 @@ public class HomeScreenFragment extends LoaderFragment {
         Button buttonReport = view.findViewById(R.id.buttonReport);
 
         view.findViewById(R.id.noResultsMsg).setVisibility(View.GONE);
+        if (searchParameters != null) buttonSearch.setText("Show All");
 
         buttonLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +107,11 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new SearchScreenFragment(isAdmin));
+                if (searchParameters == null) {
+                    loadFragment(new SearchScreenFragment(isAdmin));
+                } else {
+                    loadFragment(new HomeScreenFragment(isAdmin));
+                }
             }
         });
         buttonAdd.setOnClickListener(new View.OnClickListener() {
