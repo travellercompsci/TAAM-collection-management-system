@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,6 +101,12 @@ public class HomeScreenFragment extends LoaderFragment {
                         viewItemList.add(item);
                     }
                 }
+
+                if (viewItemList.isEmpty()) {
+                    Toast.makeText(getContext(), "Please select items before trying to view them.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 loadFragment(new ViewScreenFragment(viewItemList, isAdmin));
             }
         });
