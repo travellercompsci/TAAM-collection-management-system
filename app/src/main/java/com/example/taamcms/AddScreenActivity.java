@@ -63,7 +63,7 @@ public class AddScreenActivity extends LoaderFragment {
         editTextCategory = view1.findViewById(R.id.editTextCategory);
         editTextPeriod = view1.findViewById(R.id.editTextPeriod);
         editTextDescription = view1.findViewById(R.id.editTextDescription);
-        imageViewPicture = view1.findViewById(R.id.imageView_picture);
+        imageViewPicture = view1.findViewById(R.id.imageViewPicture);
         buttonAddItem = view1.findViewById(R.id.submit);
 
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
