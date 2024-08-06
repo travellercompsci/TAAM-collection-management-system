@@ -11,7 +11,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:background="@drawable/headerbg"
+        android:background="@drawable/headerbg2"
         android:elevation="1dp"
         android:fadingEdge="vertical"
         android:fontFamily="@font/oswald"
