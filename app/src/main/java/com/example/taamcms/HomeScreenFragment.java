@@ -74,6 +74,8 @@ public class HomeScreenFragment extends LoaderFragment {
         Button buttonRemove = view.findViewById(R.id.buttonRemove);
         Button buttonReport = view.findViewById(R.id.buttonReport);
 
+        view.findViewById(R.id.noResultsMsg).setVisibility(View.GONE);
+
         buttonLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +157,10 @@ public class HomeScreenFragment extends LoaderFragment {
                             (searchParameters.getPeriod().toLowerCase().isEmpty() || item.item.getPeriod().contains(searchParameters.getPeriod().toLowerCase())) &&
                             (searchParameters.getDescription().toLowerCase().isEmpty() || item.item.getDescription().contains(searchParameters.getDescription().toLowerCase())))
                         itemList.add(item);
+                }
+
+                if (searchParameters != null && itemList.isEmpty()) {
+                    view.findViewById(R.id.noResultsMsg).setVisibility(View.VISIBLE);
                 }
                 itemAdapter.notifyDataSetChanged();
             }
