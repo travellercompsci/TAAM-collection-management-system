@@ -38,7 +38,8 @@ public class ViewScreenFragment extends LoaderFragment {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadFragment(new HomeScreenFragment());
+                // Todo:
+                loadFragment(new HomeScreenFragment(false));
             }
         });
 

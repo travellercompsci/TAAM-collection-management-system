@@ -84,7 +84,7 @@ public class AddScreenActivity extends LoaderFragment {
             @Override
             public void onClick(View v) {
                 if (addItem()) {
-                    loadFragment(new HomeScreenFragment());
+                    loadFragment(new HomeScreenFragment(true));
                 }
             }
         });

@@ -28,6 +28,7 @@ public class HomeScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
     private List<DisplayItemCheckBox> itemList;
+    private DisplayItem searchParameters;
 
     private FirebaseDatabase db;
     private DatabaseReference itemsRef;
@@ -40,10 +41,13 @@ public class HomeScreenFragment extends LoaderFragment {
      */
     private static boolean isAdmin;
 
-    public HomeScreenFragment() {}
-
     public HomeScreenFragment(boolean isAdmin) {
         HomeScreenFragment.isAdmin = isAdmin;
+    }
+
+    public HomeScreenFragment(boolean isAdmin, String title, String lot, String category, String period, String description) {
+        HomeScreenFragment.isAdmin = isAdmin;
+        searchParameters = new DisplayItem("", title, lot, category, period, description, "");
     }
 
     @Nullable
@@ -144,7 +148,13 @@ public class HomeScreenFragment extends LoaderFragment {
                 itemList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DisplayItemCheckBox item = new DisplayItemCheckBox(snapshot.getValue(DisplayItem.class));
-                    itemList.add(item);
+                    if (searchParameters == null ||
+                            (searchParameters.getLot().toLowerCase().isEmpty() || item.item.getLot().contains(searchParameters.getLot().toLowerCase())) &&
+                            (searchParameters.getTitle().toLowerCase().isEmpty() || item.item.getTitle().contains(searchParameters.getTitle().toLowerCase())) &&
+                            (searchParameters.getCategory().toLowerCase().isEmpty() || item.item.getCategory().contains(searchParameters.getCategory().toLowerCase())) &&
+                            (searchParameters.getPeriod().toLowerCase().isEmpty() || item.item.getPeriod().contains(searchParameters.getPeriod().toLowerCase())) &&
+                            (searchParameters.getDescription().toLowerCase().isEmpty() || item.item.getDescription().contains(searchParameters.getDescription().toLowerCase())))
+                        itemList.add(item);
                 }
                 itemAdapter.notifyDataSetChanged();
             }
