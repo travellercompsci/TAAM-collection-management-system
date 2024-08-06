@@ -47,7 +47,7 @@ public class ReportScreenFragment extends LoaderFragment {
                     }
             ),
             new GeneratePDFMode(
-                    "Name",
+                    "Title",
                     R.string.hint_name,
                     true,
                     new DisplayItemStringFilter() {

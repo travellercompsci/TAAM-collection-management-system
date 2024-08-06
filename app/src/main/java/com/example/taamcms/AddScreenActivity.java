@@ -154,7 +154,7 @@ public class AddScreenActivity extends LoaderFragment {
         String description = editTextDescription.getText().toString().trim();
         String image = currentImagePath;
 
-        Log.d("AddItem", "Name: " + name);
+        Log.d("AddItem", "Title: " + name);
         Log.d("AddItem", "Lot: " + lot);
         Log.d("AddItem", "Category: " + category);
         Log.d("AddItem", "Period: " + period);

@@ -20,7 +20,7 @@
 
     <!-- Add Item Screen -->
     <string name="no_lot_number_error">Please enter a lot number.</string>
-    <string name="no_name_error">Please enter a name.</string>
+    <string name="no_name_error">Please enter a title.</string>
     <string name="no_category_error">Please enter a category.</string>
     <string name="no_period_error">Please enter a period.</string>
     <string name="no_description_error">Please enter a description.</string>
@@ -37,7 +37,7 @@
     <string name="generate_report">Generate Report</string>
 
     <string name="hint_lot_number">Lot number</string>
-    <string name="hint_name">Name of collection</string>
+    <string name="hint_name">Title</string>
     <string name="hint_category">Category</string>
     <string name="hint_period_of_time">Period of time</string>
     <string name="using">Using</string>

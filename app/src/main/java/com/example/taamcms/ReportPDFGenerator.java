@@ -140,7 +140,7 @@ public class ReportPDFGenerator {
                 Lot Number: lot number
                 Category: category
                 Period: period
-                Name: name
+                Title: title
                 Description: desc
 
              */
@@ -151,7 +151,7 @@ public class ReportPDFGenerator {
             itemDataText += "Category: " + item.getLot() + "\n";
             itemDataText += "Period: " + item.getPeriod() + "\n\n";
 
-            itemDataText += "Name: " + item.getTitle() + "\n";
+            itemDataText += "Title: " + item.getTitle() + "\n";
             itemDataText += "Description: " + item.getDescription();
         } else {
             itemDataText = item.getDescription();
