@@ -5,13 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -80,7 +79,7 @@ public class HomeScreenFragment extends LoaderFragment {
         buttonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new LoginScreenFragment());
+                loadFragment(new LoginScreenView());
             }
         });
 
@@ -93,6 +92,12 @@ public class HomeScreenFragment extends LoaderFragment {
                         viewItemList.add(item);
                     }
                 }
+
+                if (viewItemList.isEmpty()) {
+                    Toast.makeText(getContext(), "Please select items before trying to view them.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 loadFragment(new ViewScreenFragment(viewItemList));
             }
         });
@@ -119,6 +124,12 @@ public class HomeScreenFragment extends LoaderFragment {
                         removeItemList.add(item.item);
                     }
                 }
+
+                if (removeItemList.isEmpty()) {
+                    Toast.makeText(getContext(), "Please select items before trying to remove them.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 loadFragment(new RemoveScreenFragment(removeItemList));
             }
         });
