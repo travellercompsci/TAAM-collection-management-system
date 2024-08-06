@@ -23,6 +23,11 @@ public class SearchScreenFragment extends LoaderFragment {
     private EditText descriptionEditText;
     private boolean adminStatus;
 
+
+    public SearchScreenFragment(boolean adminStatus) {
+        this.adminStatus = adminStatus;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,10 +38,6 @@ public class SearchScreenFragment extends LoaderFragment {
         categoryEditText = view.findViewById(R.id.category);
         periodEditText = view.findViewById(R.id.period);
         descriptionEditText = view.findViewById(R.id.description);
-
-        if (getArguments() != null) {
-            adminStatus = getArguments().getBoolean("adminStatus", false);
-        }
 
         Button searchButton = view.findViewById(R.id.submit_button);
         searchButton.setOnClickListener(new View.OnClickListener() {

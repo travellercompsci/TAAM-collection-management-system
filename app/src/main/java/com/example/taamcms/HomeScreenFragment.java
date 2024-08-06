@@ -99,14 +99,14 @@ public class HomeScreenFragment extends LoaderFragment {
                         viewItemList.add(item);
                     }
                 }
-                loadFragment(new ViewScreenFragment(viewItemList));
+                loadFragment(new ViewScreenFragment(viewItemList, isAdmin));
             }
         });
 
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new SearchScreenFragment());
+                loadFragment(new SearchScreenFragment(isAdmin));
             }
         });
         buttonAdd.setOnClickListener(new View.OnClickListener() {
