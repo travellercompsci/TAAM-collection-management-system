@@ -167,7 +167,7 @@ public class HomeScreenFragment extends LoaderFragment {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DisplayItemCheckBox item = new DisplayItemCheckBox(snapshot.getValue(DisplayItem.class));
                     if (searchParameters == null ||
-                            (searchParameters.getLot().toLowerCase().isEmpty() || item.item.getLot().contains(searchParameters.getLot().toLowerCase())) &&
+                            (searchParameters.getLot().toLowerCase().isEmpty() || item.item.getLot().equals(searchParameters.getLot().toLowerCase())) &&
                             (searchParameters.getTitle().toLowerCase().isEmpty() || item.item.getTitle().contains(searchParameters.getTitle().toLowerCase())) &&
                             (searchParameters.getCategory().toLowerCase().isEmpty() || item.item.getCategory().contains(searchParameters.getCategory().toLowerCase())) &&
                             (searchParameters.getPeriod().toLowerCase().isEmpty() || item.item.getPeriod().contains(searchParameters.getPeriod().toLowerCase())) &&
