@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,16 +17,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class RemoveScreenFragment extends LoaderFragment {
-    List <DisplayItem> itemstoberemoved;
+    List <DisplayItem> itemsToBeRemoved;
 
     private DatabaseReference itemsRef;
     private FirebaseDatabase db;
 
-    public RemoveScreenFragment(List<DisplayItem> itemstoberemoved){
-        this.itemstoberemoved = itemstoberemoved;
+    public RemoveScreenFragment(List<DisplayItem> itemsToBeRemoved){
+        this.itemsToBeRemoved = itemsToBeRemoved;
     }
     public void removeItem(String id) {
         itemsRef = db.getReference("Displays/");
@@ -63,13 +65,22 @@ public class RemoveScreenFragment extends LoaderFragment {
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         db = FirebaseDatabase.getInstance("https://taam-collection-default-rtdb.firebaseio.com/");
 
-        View view = inflater.inflate(R.layout.removefunctionscreen, container, false);
+        View view = inflater.inflate(R.layout.remove_function_screen, container, false);
         Button generateYesButton = view.findViewById(R.id.button3);
         Button generateCancelButton = view.findViewById(R.id.button2);
+
+        String confirmMsg = "Are you sure you want to remove the following items:\n";
+        for (DisplayItem item : itemsToBeRemoved) {
+            confirmMsg += item.getTitle() + ", ";
+        }
+        confirmMsg = confirmMsg.substring(0, confirmMsg.length() - 2);
+        TextView confirmMsgView = view.findViewById(R.id.confirmMsg);
+        confirmMsgView.setText(confirmMsg);
+
         generateYesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (DisplayItem item : itemstoberemoved) {
+                for (DisplayItem item : itemsToBeRemoved) {
                     removeItem(item.getId());
                 }
                 loadFragment(new HomeScreenFragment(true));

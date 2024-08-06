@@ -17,9 +17,11 @@ public class ViewScreenFragment extends LoaderFragment {
     private RecyclerView recyclerView;
     private DisplayItemAdapter itemAdapter;
     private List<DisplayItemCheckBox> itemList;
+    private boolean adminStatus;
 
-    public ViewScreenFragment(List<DisplayItemCheckBox> itemList) {
+    public ViewScreenFragment(List<DisplayItemCheckBox> itemList, boolean adminStatus) {
         this.itemList = itemList;
+        this.adminStatus = adminStatus;
     }
 
     @Nullable
@@ -38,7 +40,7 @@ public class ViewScreenFragment extends LoaderFragment {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadFragment(new HomeScreenFragment());
+                loadFragment(new HomeScreenFragment(adminStatus));
             }
         });
 

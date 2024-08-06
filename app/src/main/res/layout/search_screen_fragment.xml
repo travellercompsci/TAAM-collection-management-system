@@ -19,15 +19,14 @@
         android:id="@+id/lot_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_lot_number"
-        android:inputType="numberSigned"
-        android:autofillHints="lot_number"
         android:layout_below="@id/title"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:textColor="#000000"
+        android:autofillHints="lot_number"
+        android:backgroundTint="#FFFFFF"
+        android:hint="@string/hint_lot_number"
         android:maxWidth="600dp"
-        android:backgroundTint="#FFFFFF" />
+        android:padding="16dp"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/name"
