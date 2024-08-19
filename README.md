@@ -16,9 +16,3 @@ In addition to all user features administrators have the following additional fe
 ## **Clone**
 
 git clone https://github.com/travellercompsci/TAAM-collection-management-system.git
-
-## **Preview**
-
-![img.png](img.png)
-![img_1.png](img_1.png)
-
