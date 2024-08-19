@@ -2,16 +2,16 @@
 
 The aim of this project is to help users and admins of Toronto Asian Art Museum to view, search, and manage items.
 
-**User Features**
-- Search items based on various criteria including lot number, title, category, period and description.
-- View individual or multiple items in a more detailed manner.
+## **User Features**
+* Search items based on various criteria including lot number, title, category, period and description.
+* View individual or multiple items in a more detailed manner.
 
 ## **Admin Features**
 
 In addition to all user features administrators have the following additional features:
-- Add an item to the collection.
-- Remove an item from the collection.
-- Generate a detailed report on an item.
+* Add an item to the collection.
+* Remove an item from the collection.
+* Generate a detailed report on an item.
 
 ## **Clone**
 
