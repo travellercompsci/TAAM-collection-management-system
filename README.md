@@ -19,5 +19,4 @@ git clone https://github.com/travellercompsci/TAAM-collection-management-system.
 
 ## **Preview**
 
-![Screenshot_20240818_211603](Screenshot_20240818_211603.png)
 
