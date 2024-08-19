@@ -6,6 +6,7 @@ User Features
 - View individual or multiple items in a more detailed manner.
 
 Admin Features
+
 In addition to all user features administrators have the following additional features:
 - Add an item to the collection.
 - Remove an item from the collection.
